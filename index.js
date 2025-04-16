@@ -8,6 +8,10 @@ app.use(cors({
 }));
 app.use(express.json());
 
+app.get("/ping", (req, res) => {
+  res.send("pong");
+});
+
 const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_JSON);
 
 admin.initializeApp({
@@ -31,9 +35,5 @@ app.post('/generate-token', async (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-});
-
-app.get("/ping", (req, res) => {
-  res.send("pong");
 });
 
