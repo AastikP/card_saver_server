@@ -6,8 +6,9 @@ const app = express();
 
 // CORS settings — allow requests from your frontend
 app.use(cors({
-  origin: 'https://aastikp.github.io',
+  origin: ['https://aastikp.github.io', 'https://hoppscotch.io'],
 }));
+
 app.use(express.json());
 
 // Health check route
